@@ -2,9 +2,7 @@
 
 Clone of the countdown page used during Buildspace Season 5.
 
-🔗 Online demo:
-- [http://51.159.52.193:8686/](http://51.159.52.193:8686/)
-- [https://buildspace-os-countdown.cserv.space/](https://buildspace-os-countdown.cserv.space/)
+🔗 [Online demo](https://buildspace-os-countdown.cserv.space)
 
 <p align="center">
   <a href="https://raw.githubusercontent.com/Spixz/buildspace-os-countdown/refs/heads/main/screenshots/screenshots.png" target="_blank">
