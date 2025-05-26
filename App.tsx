@@ -19,6 +19,14 @@ const App: React.FC = () => {
     return DEMO_DAY_TARGET_DATE;
   });
 
+  const [message, setMessage] = useState<string>(() => {
+    const savedMessage = localStorage.getItem('timerMessage');
+    if (savedMessage) {
+      return savedMessage;
+    }
+    return 'days till demo day'; // Default message
+  });
+
   const { days, fraction } = useDemoDayCountdown(targetDate);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -36,6 +44,11 @@ const App: React.FC = () => {
     setIsModalOpen(false);
   }, []);
 
+  const handleMessageChange = useCallback((newMessage: string) => {
+    setMessage(newMessage);
+    localStorage.setItem('timerMessage', newMessage);
+  }, []);
+
   useEffect(() => {
     // Ensure the initial targetDate (if loaded from localStorage) is used for the countdown
     // This effect is mostly to show how one might re-trigger if targetDate was not initially in useDemoDayCountdown
@@ -45,8 +58,8 @@ const App: React.FC = () => {
   return (
     <div className="relative h-screen w-screen overflow-hidden antialiased">
       <BackgroundScreen
-        videoSrc="https://framerusercontent.com/assets/UUaKnrRk67VWHwJzeCwxfsajLU.mp4"
-        noiseTextureSrc="https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png"
+        videoSrc="assets/videos/background_video.mp4"
+        noiseTextureSrc="assets/images/noise_texture.png"
       />
       
       <div className="absolute top-0 left-0 p-6 md:p-8 z-20">
@@ -54,7 +67,7 @@ const App: React.FC = () => {
       </div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-        <CountdownDisplay days={days} fraction={fraction} onOpenModal={handleOpenModal} />
+        <CountdownDisplay days={days} fraction={fraction} onOpenModal={handleOpenModal} message={message} />
         <p 
           className="text-white/75 mt-3 pointer-events-none"
           style={{
@@ -62,8 +75,7 @@ const App: React.FC = () => {
             letterSpacing: '-2.4px',
             lineHeight: '1em',
           }}
-        >
-          days till demo day
+        >{message}
         </p>
       </div>
 
@@ -72,6 +84,8 @@ const App: React.FC = () => {
           isOpen={isModalOpen}
           onClose={handleCloseModal}
           onSave={handleSaveTargetDate}
+          message={message}
+          onMessageChange={handleMessageChange}
           currentTarget={targetDate}
         />
       )}

@@ -5,6 +5,8 @@ interface TargetDateModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSave: (newTargetDate: Date) => void;
+  message: string;
+  onMessageChange: (newMessage: string) => void;
   currentTarget: Date;
 }
 
@@ -23,7 +25,7 @@ const formatTimeForInput = (date: Date): string => {
   return `${hours}:${minutes}`;
 };
 
-export const TargetDateModal: React.FC<TargetDateModalProps> = ({ isOpen, onClose, onSave, currentTarget }) => {
+export const TargetDateModal: React.FC<TargetDateModalProps> = ({ isOpen, onClose, onSave, currentTarget, message, onMessageChange }) => {
   const [dateInput, setDateInput] = useState<string>(formatDateForInput(currentTarget));
   const [timeInput, setTimeInput] = useState<string>(formatTimeForInput(currentTarget));
 
@@ -108,6 +110,17 @@ export const TargetDateModal: React.FC<TargetDateModalProps> = ({ isOpen, onClos
               required
               className="w-full p-3 bg-black/50 border border-white/30 rounded text-white focus:ring-2 focus:ring-white/50 outline-none appearance-none"
               style={{ colorScheme: 'dark' }}
+            />
+          </div>
+          <div>
+            <label htmlFor="message" className="block text-sm text-white/80 mb-1">Message:</label>
+            <input
+              type="text"
+              id="message"
+              value={message}
+              onChange={(e) => onMessageChange(e.target.value)}
+              className="w-full p-3 bg-black/50 border border-white/30 rounded text-white focus:ring-2 focus:ring-white/50 outline-none"
+              placeholder="Enter message below timer"
             />
           </div>
           <div className="flex justify-end space-x-4 pt-4">

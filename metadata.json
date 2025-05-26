@@ -1,5 +1,6 @@
 {
   "name": "Buildspace OS Countdown",
   "description": "A replica of the Buildspace OS landing page featuring a blurred background video, a prominent logo, and a dynamic countdown timer to demo day. Styled with Tailwind CSS for a modern, retro aesthetic.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "prompt": ""
 }
