@@ -1,14 +1,41 @@
-# Run and deploy your AI Studio app
+# 🧭 buildspace-os-countdown
 
-This contains everything you need to run your app locally.
+Clone of the countdown page used during Buildspace Season 5.
 
-## Run Locally
+🔗 Online demo:
+- [https://buildspace-os-countdown.cserv.space/](https://buildspace-os-countdown.cserv.space/)
+- [http://51.159.52.193:8686/](http://51.159.52.193:8686/)
 
-**Prerequisites:**  Node.js
+---
 
+## 🖼️ Screenshot
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+<p align="center">
+  <a href="https://raw.githubusercontent.com/Spixz/buildspace-os-countdown/refs/heads/main/screenshots/screenshots.png" target="_blank">
+    <img src="screenshots/screenshot-1.jpg" width="100%" alt="screenshot" />
+  </a>
+</p>
+
+---
+
+## 🧩 Installation (Chrome Extension)
+
+1. Open `chrome://extensions/` in Google Chrome.
+2. Enable **Developer mode** (top right).
+3. Click **"Load unpacked"** (top left).
+4. Select the `buildspace-os-extension` folder.
+
+---
+
+## 🕹️ Usage
+
+- Click the countdown to set a **target date** and a **custom message**.
+
+---
+
+## 🧪 Development build
+
+```bash
+npm install
+npm run dev
+npx http-server dist
