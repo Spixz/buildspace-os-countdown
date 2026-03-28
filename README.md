@@ -42,5 +42,5 @@ The static site is generated in `dist/`.
 Use the PM2 config in `ecosystem.config.cjs` to install dependencies, build the site, and serve `dist/` with Caddy on port `8686`.
 
 ```bash
-pm2 start ecosystem.config.cjs --env production
+pm2 start ecosystem.config.cjs
 ```
