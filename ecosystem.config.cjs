@@ -6,7 +6,7 @@ module.exports = {
       script: "/bin/zsh",
       args: [
         "-lc",
-        "pnpm install && pnpm run build && exec caddy file-server --root ./dist --listen :8686",
+        "pnpm install && pnpm run build && exec caddy run --config ./Caddyfile --adapter caddyfile",
       ],
       watch: false,
       ignore_watch: ["node_modules"],

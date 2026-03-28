@@ -1,0 +1,9 @@
+{
+	admin off
+}
+
+:8686 {
+	root * ./dist
+	encode zstd gzip
+	file_server
+}
